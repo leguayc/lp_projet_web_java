@@ -1,0 +1,7 @@
+package BatailleCartes;
+
+public class Deck {
+	private ArrayList<Carte> deck;
+	
+	
+}

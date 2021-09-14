@@ -1,0 +1,72 @@
+package BatailleCartes;
+import java.util.*;
+
+public class Bataille {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<Carte> deck = new ArrayList<Carte>();
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 13; j++) {
+				deck.add(new Carte(i, j));
+			}
+		}
+		
+		Joueur j1 = new Joueur();
+		Joueur j2 = new Joueur();
+		int random = 0;
+		System.out.println(deck.size());
+		while(deck.size() != 0) {
+			random = (int)(Math.random() * deck.size());
+			j1.addCarte(deck.get(random));
+			deck.remove(random);
+			random = (int)(Math.random() * deck.size());
+			j2.addCarte(deck.get(random));
+			deck.remove(random);
+		}
+		
+		Carte c1;
+		Carte c2;
+		int compareCard = 0;
+		String str = "";
+		
+		while(j1.getDeckSize() < 52 && j2.getDeckSize() < 52) {
+			c1 = j1.tireCarte();
+			c2 = j2.tireCarte();
+			compareCard = c1.compareCard(c2);
+			
+			switch(compareCard) {
+				case -1: { 
+					str = "J1 gagne.";
+					j1.addCarte(c1);
+					j2.addCarte(c2);
+					break;
+				}
+				case 0: { 
+					str = "Egalité.";
+					j2.addCarte(c1);
+					j2.addCarte(c2);
+					break;
+				}
+				case 1: { 
+					str = "J2 gagne.";
+					j2.addCarte(c1);
+					j2.addCarte(c2);
+					break; 
+				}
+				default: { str = "Error"; break; }
+			}
+
+			System.out.println(str + " " + c1 + " (J1) contre " + c2 + " (J2).");
+		}
+		
+		System.out.println("\n\nJ1 : " + j1.getDeckSize() + " / J2 : " + j2.getDeckSize());
+		if(j1.getDeckSize() == 52) {
+			System.out.println("J1 a gagné la partie !");
+		}
+		else if(j2.getDeckSize() == 52) {
+			System.out.println("J2 a gagné la partie !");
+		}
+	}
+
+}

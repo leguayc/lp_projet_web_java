@@ -1,0 +1,12 @@
+package BatailleCartes;
+
+import java.util.ArrayList;
+
+public class Deck {
+	private ArrayList<Carte> deck;
+	
+	public Deck() {
+		deck = new ArrayList<Carte>;
+	}
+	
+}

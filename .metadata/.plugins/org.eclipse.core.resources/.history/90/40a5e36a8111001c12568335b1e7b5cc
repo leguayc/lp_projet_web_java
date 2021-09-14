@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class Joueur {
+	private ArrayList<Carte> cartes;
+	
+	public Joueur() {
+		this.cartes = new ArrayList<Carte>();
+	}
+	
+	public Carte tireCarte() {
+		return cartes.get(0);
+	}
+	
+	public void addCarte() {
+		
+	}
+}

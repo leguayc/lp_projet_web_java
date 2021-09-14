@@ -1,0 +1,31 @@
+package BatailleCartes;
+import java.util.*;
+
+public class Joueur {
+	private ArrayList<Carte> cartes;
+	
+	public Joueur() {
+		this.cartes = new ArrayList<Carte>();
+	}
+	
+	public Carte tireCarte() {
+		Carte c;
+		if(cartes.size() > 0) {
+			c = cartes.get(0);
+			cartes.remove(0);
+		}
+		else {
+			c = new R
+		}
+		
+		return c;
+	}
+	
+	public void addCarte(Carte c) {
+		cartes.add(c);
+	}
+	
+	public int getDeckSize() {
+		return cartes.size();
+	}
+}

@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Joueur {
+	private ArrayList<Carte> cartes;
+	
+	public Joueur() {
+		this.cartes = new ArrayList<Carte>();
+	}
+	
+	public Carte tireCarte() {
+		Carte c = cartes.get(0);
+		cartes.remove(0)
+		return ;
+	}
+	
+	public void addCarte() {
+		
+	}
+}

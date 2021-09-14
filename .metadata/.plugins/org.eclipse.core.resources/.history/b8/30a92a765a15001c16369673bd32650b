@@ -1,0 +1,48 @@
+package BatailleCartes;
+import java.util.*;
+
+public class Player {
+	private Deck deck;
+	
+	/**
+	 * Constructor
+	 */
+	public Player() {
+		this.deck = new Deck(false);
+	}
+	
+	/**
+	 * Pick a card from the player's deck
+	 * 
+	 * @return
+	 */
+	public Card pickCard() {
+		Card c;
+		if(deck.getSize() > 0) {
+			c = cartes.get(0);
+			cartes.remove(0);
+		}
+		else {
+			c = null;
+		}
+		
+		return c;
+	}
+	
+	/**
+	 * Add card to player's deck
+	 * 
+	 * @param c
+	 */
+	public void addCard(Card c) {
+		cartes.add(c);
+	}
+	
+	public int getDeckSize() {
+		return cartes.size();
+	}
+	
+	public boolean hasWon() {
+		return cartes.size() == 52;
+	}
+}

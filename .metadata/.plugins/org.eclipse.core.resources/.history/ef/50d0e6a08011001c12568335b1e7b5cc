@@ -1,0 +1,67 @@
+
+public class Carte {
+	private static String[] couleurs = {"pique", "trefle", "carreau", "coeur"};
+	private static int[] valeurs = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+	private String couleur;
+	private int valeur;
+	
+	public Carte() {
+		int randomCouleur = (int)(Math.random() * 4) 
+		this.couleur = couleurs[Math.random()];
+		this.valeur = valeurs[0];
+	}
+	
+	public Carte(String couleur, int valeur) {
+		for(int i = 0; i < couleurs.length; i++) {
+			if(couleur == couleurs[i]) {
+				this.couleur = couleur;
+				break;
+			}
+		}
+		
+		if(this.couleur != couleur) {
+			this.couleur = couleurs[0];
+		}
+		
+		for(int i = 0; i < valeurs.length; i++) {
+			if(valeur == valeurs[i]) {
+				this.valeur = valeur;
+				break;
+			}
+		}
+		
+		if(this.valeur != valeur) {
+			this.valeur = valeurs[0];
+		}
+	}
+	
+	public boolean isWin(Carte c) {
+		return this.valeur > c.valeur;
+	}
+	
+	public boolean isTie(Carte c) {
+		return this.valeur == c.valeur;
+	}
+	
+	public String getCouleur() {
+		return this.couleur;
+	}
+	
+	public int getValeur() {
+		return this.valeur;
+	}
+	
+	public String toString() {
+		String str = "";
+		
+		switch(this.valeur) {
+			case 11: { str = "Valet"; break; }
+			case 12: { str = "Dame"; break; }
+			case 13: { str = "Roi"; break; }
+			case 14: { str = "As"; break; }
+			default: { str = "" + this.valeur; break; }
+		}
+		
+		return str + " de " + this.couleur;
+	}
+}

@@ -1,0 +1,59 @@
+
+public class Point {
+	private double x;
+	private double y;
+	
+	public Point(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	/**
+	 * Moves point to said coordinates
+	 * 
+	 * @param x double
+	 * @param y double
+	 */
+	public void moveTo(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	/**
+	 * Moves point by adding distance to coordinates
+	 * 
+	 * @param x double
+	 * @param y double
+	 */
+	public void rMoveTo(double x, double y) {
+		this.x += x;
+		this.y += y;
+	}
+	
+	/**
+	 * Computes distance between this point and point p
+	 * 
+	 * @param p Point
+	 * @return double
+	 */
+	public double distance(Point p) {
+		double dist = 0;
+		
+		dist += Math.abs(this.x - p.getX());
+		dist += Math.abs(this.y - p.getY());
+		
+		return dist;
+	}
+	
+	public double getX() {
+		return this.x;
+	}
+	
+	public double getY() {
+		return this.y;
+	}
+	
+	public String toString() {
+		return "X = " + this.x + " / Y = " + this.y;
+	}
+}

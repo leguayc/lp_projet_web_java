@@ -1,0 +1,64 @@
+package BatailleCartes;
+
+import java.util.ArrayList;
+
+public class Deck {
+	private ArrayList<Card> deck;
+	
+	/**
+	 * Constructor with initialized deck or not
+	 * 
+	 * @param withInit
+	 */
+	public Deck(boolean withInit) {
+		this.deck = new ArrayList<Card>();
+		if(withInit) {
+			this.initDeck();
+		}
+	}
+	
+	/**
+	 * Initialize the deck with all the cards
+	 */
+	private void initDeck() {
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 13; j++) {
+				this.deck.add(new Card(i, j));
+			}
+		}
+	}
+	
+	/**
+	 * Shuffle the deck and distribute the cards to the player
+	 * 
+	 * @param p1
+	 * @param p2
+	 */
+	public void shuffleAndDistribute(Player p1, Player p2) {
+		int random = 0;
+		while(deck.size() != 0) {
+			random = (int)(Math.random() * deck.size());
+			p1.addCard(deck.get(random));
+			deck.remove(random);
+			random = (int)(Math.random() * deck.size());
+			p2.addCard(deck.get(random));
+			deck.remove(random);
+		}
+	}
+	
+	public Card getCard(int index) {
+		return this.deck.get(index);
+	}
+	
+	public void addCard(Card c) {
+		this.deck.add(c);
+	}
+	
+	public Card removeCard(int index) {
+		return this.deck.remove(index);
+	}
+	
+	public int getSize() {
+		return this.deck.size();
+	}
+}
