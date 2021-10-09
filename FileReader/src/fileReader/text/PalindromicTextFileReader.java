@@ -15,7 +15,8 @@ public class PalindromicTextFileReader extends TextFileReader {
 	public void readFile() {
 		String line = null;
 		StringBuilder builder = new StringBuilder();
-        
+		this.lines.clear();
+		
         try {
 			while((line = this.reader.readLine())!= null) {
 				this.lines.add(line);

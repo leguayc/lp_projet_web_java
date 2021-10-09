@@ -13,7 +13,8 @@ public class ClassicTextFileReader extends TextFileReader {
 	@Override
 	public void readFile() {
 		String line = null;
-        
+		this.lines.clear();
+		
         try {
 			while((line = this.reader.readLine())!= null) {
 				this.lines.add(line);

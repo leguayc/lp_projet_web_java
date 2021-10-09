@@ -23,7 +23,7 @@ public class DiffTextFileReader extends TextFileReader {
         
 		// If it's an even file, it's considered as the first file, so we clear the saved lines
 		if(countFileFinished%2 == 0) {
-			lines.clear();
+			this.lines.clear();
 		}
 		
         try {
