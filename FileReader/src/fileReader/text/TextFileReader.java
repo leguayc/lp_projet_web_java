@@ -23,6 +23,7 @@ public abstract class TextFileReader implements FileReader {
 	 * @param String filePath
 	 */
 	public void openFile(String filePath) {
+		this.reader = null;
 		try {
 			if (filePath.endsWith(".txt")) {
 				this.reader = Files.newBufferedReader(Paths.get(filePath));
