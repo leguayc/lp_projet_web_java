@@ -12,7 +12,8 @@ public class MainGL
 	{
 		JFrame frame = new JFrame();
 		GLCanvas canvas = new GLCanvas();
-		GLHandler events = new GLHandler();
+		FPSAnimator anim = new FPSAnimator(canvas, 60);
+		GLHandler events = new GLHandler(frame, anim);
 		canvas.addKeyListener(new UserKeyboard(events));
 		canvas.setPreferredSize(new Dimension(800, 600));
 		canvas.addGLEventListener(events);
@@ -20,9 +21,7 @@ public class MainGL
 		frame.setTitle("Space Invaders OpenGL");
 		frame.pack();
 		frame.setVisible(true);
-		FPSAnimator anim = new FPSAnimator(canvas, 60);
 		anim.start();
-		
 	}
 
 }
